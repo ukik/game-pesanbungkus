@@ -1,0 +1,81 @@
+# Semua file Library Model/Controller saya letakkan di 
+vendor/laravel/framework/src/illuminate/database/eloquent
+
+# Library Controller saya install di
+vendor/laravel/framework/src/illuminate/routing/controller
+
+# Library Model saya install di
+vendor/laravel/framework/src/illuminate/database/eloquent/model
+
+# Library File Function Autoload
+vendor/laravel/framework/src/illuminate/database/eloquent/FilterHelpers.php
+
+composer.json
+"autoload": {
+	"classmap": [
+		"database"
+	],
+	"files": [
+		"vendor/laravel/framework/src/illuminate/database/eloquent/FilterHelpers.php"
+	],		
+	"psr-4": {
+		"App\\": "app/"
+	}
+},
+
+# Library Class Function Autoload
+vendor/laravel/framework/src/illuminate/database/eloquent/FilterBridge.php
+
+composer.json
+"autoload": {
+	"classmap": [
+		"database",
+		"vendor/laravel/framework/src/illuminate/database/eloquent/FilterBridge.php"
+	],
+	"files": [
+		"vendor/laravel/framework/src/illuminate/database/eloquent/FilterHelpers.php"
+	],		
+	"psr-4": {
+		"App\\": "app/"
+	}
+},
+
+# Response Headers only Readable
+There is a restriction to access response headers when you are using Fetch API over CORS. Due you this restriction, you can access only following standard headers from Javascript:
+
+	Cache-Control
+	Content-Language
+	Content-Type
+	Expires (...............put token here)
+	Last-Modified
+	Pragma
+
+# TIPS
+clear composer cache if artisan bugging
+~ php artisan config:clear
+
+
+// ==========================================================================
+// ==========================================================================
+How to Passing Parameter to Model Method
+#https://laracasts.com/discuss/channels/general-discussion/passing-a-parameter-of-a-controller-to-model
+
+//Route
+Route::get('Item/{id}', 'ItemsController@showItem');
+
+//Controller
+public function showItem($id) {
+	$retrieveItems = Item::rtvItem($id);
+}
+return $retrieveItems;
+
+//Model
+//static function can not be called using with()
+public static function rtvItem($id) {
+	//Get the value from public function showItem($id)
+	//Your code
+}
+
+note: jika kamu tidak memerlukan parameter untuk dipassing dari luar ke dalam model, sebaiknya tidak usah menggunakan static function
+// ==========================================================================
+// ==========================================================================

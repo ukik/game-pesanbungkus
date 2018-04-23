@@ -1,0 +1,1 @@
+Try to force https for all resources by running composer config -g repo.packagist composer https://packagist.org - that usually helps get around such network issues.

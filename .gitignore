@@ -1,0 +1,14 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/.idea
+/.vagrant
+/.vscode
+/- mysql font
+development
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
