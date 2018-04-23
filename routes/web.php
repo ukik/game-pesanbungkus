@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('', function () {
-	return 123;
+use DB;
+
+Route::get('/', function () {
+	if(DB::connection()->getDatabaseName())
+    {
+       echo "Yes! successfully connected to the DB: ". DB::connection()->getDatabaseName();
+    }
 });
